@@ -14,7 +14,7 @@ ArrayList::ArrayList(int capacity) : capacity_{capacity} {
   }
   capacity_ = capacity;
   data_ = new Element[capacity_];
-  std::fill(data_,data_+capacity,Element::UNINITIALIZED);
+  std::fill(data_,data_+capacity_,Element::UNINITIALIZED);
 
 }
 
@@ -34,8 +34,7 @@ void ArrayList::Add(Element e) {
       resize(capacity_+kCapacityGrowthCoefficient);
   }
   assert(size_ < capacity_);  // я здесь, чтобы не дать тебе сойти с правильного пути
-  data_[size_] = e;
-  size_++;
+  data_[size_++] = e;
   // напишите свой код после расширения емкости массива здесь ...
 }
 
