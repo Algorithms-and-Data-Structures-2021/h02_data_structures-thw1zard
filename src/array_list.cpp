@@ -13,7 +13,7 @@ ArrayList::ArrayList(int capacity) : capacity_{capacity} {
     throw std::invalid_argument("ArrayList::capacity must be positive");
   }
   capacity_ = capacity;
-  data_ = new Element[capacity_];
+  data_ = new Element[capacity_]{};
   std::fill(data_,data_+capacity_,Element::UNINITIALIZED);
 
 }
@@ -54,7 +54,7 @@ void ArrayList::Insert(int index, Element e) {
   assert(size_ < capacity_);  // я ни в коем случае не дам вам совершить ошибку всей вашей жизни
   std::copy(data_+index,data_+size_,data_+index+1);
   data_[index] = e;
-  size_++;
+  size_+=1;
   // Tip 2: для свдига элементов вправо можете использовать std::copy
   // напишите свой код после расширения емкости массива здесь ...
 }

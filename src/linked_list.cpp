@@ -72,17 +72,20 @@ Element LinkedList::Remove(int index) {
   internal::check_out_of_range(index, 0, size_);
   // Tip 1: рассмотрите случай, когда удаляется элемент в начале списка
   if(index == 0){
+      Node* next_node = head_ -> next;
       Element headElement = head_ -> data;
-      head_ = head_->next;
+      delete head_;
+      head_ = next_node;
       size_-=1;
       return headElement;
   }
 
   if(index>0 && index < size_){
       Element removedElement = find_node(index) -> data;
+      Node* curr_node = find_node(index);
       Node* prev_node = find_node(index-1);
-      Node* next_node = find_node(index)->next;
-      prev_node -> next = next_node;
+      prev_node -> next = curr_node -> next;
+      delete curr_node;
       size_-=1;
       return removedElement;
   }
