@@ -77,14 +77,7 @@ Element LinkedList::Remove(int index) {
       size_-=1;
       return headElement;
   }
-//  if(index == size_){
-//      Element tailElementWhichRemoved = tail_->data;
-//      Node* prev_node = find_node(index-1);
-//      tail_ = prev_node;
-//      prev_node -> next = nullptr;
-//      size_-=1;
-//      return tailElementWhichRemoved ;
-//  }
+
   if(index>0 && index < size_){
       Element removedElement = find_node(index) -> data;
       Node* prev_node = find_node(index-1);
