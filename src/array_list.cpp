@@ -136,7 +136,7 @@ void ArrayList::resize(int new_capacity) {
   std::copy(data_, data_ + size_, new_data);
 
   // 3. заполняем "свободные" ячейки памяти значением Element::UNINITIALIZED
-  std::fill(new_data + size_ + 1, new_data + new_capacity, Element::UNINITIALIZED);
+  std::fill(new_data + size_ , new_data + new_capacity, Element::UNINITIALIZED);
 
   // 4. высвобождаем старый участок памяти меньшего размера
   delete data_;
